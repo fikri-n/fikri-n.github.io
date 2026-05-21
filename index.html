@@ -1,0 +1,1648 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Draft Foto Nadia</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --purple-deep: #1a0a2e;
+    --purple-mid: #2d1554;
+    --purple-accent: #7c3aed;
+    --purple-bright: #a855f7;
+    --purple-glow: #c084fc;
+    --purple-soft: #e9d5ff;
+    --white: #ffffff;
+    --white-dim: rgba(255,255,255,0.08);
+    --white-soft: rgba(255,255,255,0.6);
+    --border: rgba(168,85,247,0.25);
+    --card-bg: rgba(45, 21, 84, 0.45);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background-color: var(--purple-deep);
+    background-image:
+      radial-gradient(ellipse 80% 60% at 20% 10%, rgba(124,58,237,0.25) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 80% at 80% 90%, rgba(168,85,247,0.18) 0%, transparent 60%),
+      url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='30' cy='30' r='0.8' fill='rgba(200,160,255,0.12)'/%3E%3C/svg%3E");
+    min-height: 100vh;
+    font-family: 'DM Sans', sans-serif;
+    color: var(--white);
+    overflow-x: hidden;
+  }
+
+  /* ── HEADER ── */
+  header {
+    padding: 2.5rem 3rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(20px);
+    background: rgba(26,10,46,0.7);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .logo {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 1.6rem;
+    letter-spacing: -0.04em;
+    background: linear-gradient(135deg, var(--white) 30%, var(--purple-glow));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .logo span {
+    display: inline-block;
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--purple-bright);
+    margin-left: 4px;
+    vertical-align: super;
+    box-shadow: 0 0 12px var(--purple-bright);
+    -webkit-text-fill-color: initial;
+  }
+
+  nav { display: flex; gap: 2rem; align-items: center; }
+  nav a {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--white-soft);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+    transition: color 0.2s;
+  }
+  nav a:hover { color: var(--white); }
+
+  .btn-upload {
+    background: var(--purple-accent);
+    color: #fff;
+    border: none;
+    border-radius: 100px;
+    padding: 0.55rem 1.3rem;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 500;
+    cursor: pointer;
+    letter-spacing: 0.02em;
+    box-shadow: 0 0 20px rgba(124,58,237,0.5);
+    transition: transform 0.15s, box-shadow 0.15s;
+  }
+  .btn-upload:hover { transform: translateY(-1px); box-shadow: 0 0 30px rgba(124,58,237,0.75); }
+
+  /* ── HERO ── */
+  .hero {
+    padding: 4rem 3rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .hero-eyebrow {
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--purple-glow);
+    font-weight: 500;
+  }
+  .hero h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(2.4rem, 5vw, 4rem);
+    font-weight: 800;
+    line-height: 1.0;
+    letter-spacing: -0.04em;
+    max-width: 600px;
+  }
+  .hero h1 em {
+    font-style: normal;
+    background: linear-gradient(90deg, var(--purple-glow), var(--purple-soft));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* ── FILTER BAR ── */
+  .filter-bar {
+    padding: 1.5rem 3rem;
+    display: flex;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .filter-label {
+    font-size: 0.75rem;
+    color: var(--white-soft);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-right: 0.4rem;
+  }
+
+  .chip {
+    padding: 0.4rem 1rem;
+    border-radius: 100px;
+    font-size: 0.78rem;
+    font-weight: 500;
+    cursor: pointer;
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--white-soft);
+    font-family: 'DM Sans', sans-serif;
+    transition: all 0.2s;
+    letter-spacing: 0.02em;
+  }
+  .chip:hover { border-color: var(--purple-bright); color: var(--white); }
+  .chip.active {
+    background: var(--purple-accent);
+    border-color: var(--purple-accent);
+    color: #fff;
+    box-shadow: 0 0 16px rgba(124,58,237,0.5);
+  }
+
+  /* ── GRID — single unified grid ── */
+  .grid {
+    padding: 0 3rem 4rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: 1.25rem;
+  }
+
+  /* ── CARD ── */
+  .card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    backdrop-filter: blur(12px);
+    transition: transform 0.3s cubic-bezier(.22,.68,0,1.2), box-shadow 0.3s;
+    cursor: pointer;
+    animation: fadeUp 0.5s both;
+  }
+  .card:hover {
+    transform: translateY(-6px) scale(1.015);
+    box-shadow: 0 20px 60px rgba(124,58,237,0.35), 0 0 0 1px rgba(168,85,247,0.4);
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Gradient overlay on image */
+  .card-img-wrap {
+    position: relative;
+    overflow: hidden;
+  }
+  .card-img-wrap::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, transparent 40%, rgba(26,10,46,0.9) 100%);
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  /* Tag badge */
+  .tag {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    z-index: 3;
+    padding: 0.25rem 0.65rem;
+    border-radius: 100px;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    backdrop-filter: blur(8px);
+  }
+  .tag-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .tag.couple  { background: rgba(244,63,94,0.25); border: 1px solid rgba(244,63,94,0.5); color: #fda4af; }
+  .tag.couple .tag-dot { background: #f43f5e; }
+  .tag.pria    { background: rgba(59,130,246,0.25); border: 1px solid rgba(59,130,246,0.5); color: #93c5fd; }
+  .tag.pria .tag-dot { background: #3b82f6; }
+  .tag.wanita  { background: rgba(236,72,153,0.25); border: 1px solid rgba(236,72,153,0.5); color: #f9a8d4; }
+  .tag.wanita .tag-dot { background: #ec4899; }
+
+  /* Like badge */
+  .like-badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    z-index: 3;
+    background: rgba(26,10,46,0.6);
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    padding: 0.2rem 0.5rem;
+    font-size: 0.68rem;
+    color: var(--white-soft);
+    backdrop-filter: blur(6px);
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    transition: color 0.2s;
+  }
+  .like-badge:hover { color: #f43f5e; }
+
+  /* Card body */
+  .card-body {
+    padding: 0.9rem 1rem 1rem;
+  }
+  .card-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.01em;
+    color: var(--white);
+  }
+
+  .card-actions {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  .btn-view, .btn-copy {
+    flex: 1;
+    padding: 0.5rem 0;
+    border-radius: 10px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    transition: all 0.2s;
+    border: none;
+    letter-spacing: 0.01em;
+  }
+  .btn-view {
+    background: rgba(255,255,255,0.06);
+    color: var(--white-soft);
+    border: 1px solid var(--border);
+  }
+  .btn-view:hover {
+    background: rgba(255,255,255,0.12);
+    color: var(--white);
+    border-color: rgba(168,85,247,0.5);
+  }
+  .btn-copy {
+    background: linear-gradient(135deg, var(--purple-accent), var(--purple-bright));
+    color: #fff;
+    box-shadow: 0 4px 14px rgba(124,58,237,0.4);
+  }
+  .btn-copy:hover {
+    box-shadow: 0 6px 22px rgba(124,58,237,0.65);
+    transform: translateY(-1px);
+  }
+  .btn-copy.copied {
+    background: linear-gradient(135deg, #059669, #10b981);
+    box-shadow: 0 4px 14px rgba(5,150,105,0.4);
+  }
+
+  /* Placeholder image shapes */
+  .thumb-placeholder {
+    width: 100%;
+    aspect-ratio: 3/4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .thumb-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+    transition: transform 0.4s ease;
+  }
+  .card:hover .thumb-placeholder img {
+    transform: scale(1.08);
+  }
+
+  /* Video thumbnail wrapper — no autoplay on card */
+  .video-thumb-wrap {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .video-thumb-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+  }
+  /* Play icon overlay on video cards */
+  .video-play-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 4;
+  }
+  .video-play-overlay .play-icon {
+    width: 48px; height: 48px;
+    background: rgba(124,58,237,0.75);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    backdrop-filter: blur(4px);
+    border: 2px solid rgba(168,85,247,0.6);
+    transition: transform 0.2s, background 0.2s;
+    box-shadow: 0 0 20px rgba(124,58,237,0.6);
+  }
+  .card:hover .video-play-overlay .play-icon {
+    transform: scale(1.1);
+    background: rgba(124,58,237,0.95);
+  }
+
+  .preset-1  { background: linear-gradient(160deg, #1a1a2e 0%, #6b21a8 60%, #d8b4fe 100%); }
+  .preset-2  { background: linear-gradient(160deg, #0f172a 0%, #4c1d95 50%, #fda4af 100%); }
+  .preset-3  { background: linear-gradient(160deg, #18181b 0%, #3730a3 50%, #a5b4fc 100%); }
+  .preset-4  { background: linear-gradient(160deg, #09090b 0%, #1e1b4b 50%, #818cf8 100%); }
+  .preset-5  { background: linear-gradient(160deg, #0c0a09 0%, #292524 50%, #e7e5e4 100%); }
+
+  /* ── STATS BAR ── */
+  .stats {
+    padding: 0 3rem 1.5rem;
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+  }
+  .stat {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+  }
+  .stat-value {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 800;
+    background: linear-gradient(90deg, var(--white), var(--purple-glow));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .stat-label {
+    font-size: 0.72rem;
+    color: var(--white-soft);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  /* ── SEARCH ── */
+  .search-wrap {
+    padding: 0 3rem 0;
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: -0.5rem;
+  }
+  .search-input {
+    background: var(--white-dim);
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    padding: 0.5rem 1rem 0.5rem 2.5rem;
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.82rem;
+    outline: none;
+    width: 220px;
+    background-image: url("data:image/svg+xml,%3Csvg width='14' height='14' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='11' cy='11' r='8' stroke='rgba(168,85,247,0.7)' stroke-width='2'/%3E%3Cpath d='m21 21-4.35-4.35' stroke='rgba(168,85,247,0.7)' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: 0.75rem center;
+    transition: border-color 0.2s, width 0.3s;
+  }
+  .search-input:focus { border-color: var(--purple-bright); width: 280px; }
+  .search-input::placeholder { color: rgba(255,255,255,0.3); }
+
+  /* ── FOOTER ── */
+  footer {
+    padding: 1.5rem 3rem;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--white-soft);
+    font-size: 0.76rem;
+  }
+  footer a { color: var(--purple-glow); text-decoration: none; }
+
+  /* ── MODAL ── */
+  .modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(10,4,20,0.85);
+    backdrop-filter: blur(16px);
+    z-index: 200;
+    align-items: center;
+    justify-content: center;
+  }
+  .modal-overlay.open { display: flex; animation: fadeIn 0.2s; }
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+  .modal {
+    background: var(--purple-mid);
+    border: 1px solid rgba(168,85,247,0.4);
+    border-radius: 24px;
+    padding: 2rem;
+    width: min(420px, 90vw);
+    box-shadow: 0 40px 100px rgba(0,0,0,0.6), 0 0 0 1px rgba(168,85,247,0.2);
+    position: relative;
+    animation: slideUp 0.25s cubic-bezier(.22,.68,0,1.2);
+  }
+  @keyframes slideUp { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+
+  .modal-close {
+    position: absolute;
+    top: 1rem; right: 1rem;
+    background: rgba(255,255,255,0.08);
+    border: none;
+    color: var(--white-soft);
+    width: 30px; height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1rem;
+    display: flex; align-items: center; justify-content: center;
+    transition: background 0.2s;
+  }
+  .modal-close:hover { background: rgba(255,255,255,0.15); color: var(--white); }
+
+  .modal h2 {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+  }
+  .modal-tag { margin-bottom: 1rem; }
+  .modal-preview {
+    border-radius: 14px;
+    overflow: hidden;
+    margin-bottom: 1rem;
+    aspect-ratio: 3/4;
+    max-height: 280px;
+  }
+  .modal-preview .thumb-placeholder { aspect-ratio: unset; height: 280px; }
+  .modal-preview img { width: 100%; height: 100%; object-fit: cover; }
+  .modal-desc {
+    font-size: 0.82rem;
+    color: var(--white-soft);
+    line-height: 1.6;
+    margin-bottom: 1.2rem;
+  }
+  .modal-actions { display: flex; gap: 0.6rem; }
+  .modal-actions .btn-view,
+  .modal-actions .btn-copy { padding: 0.65rem 0; font-size: 0.82rem; }
+
+  /* Video controls in modal */
+  .modal-video-controls {
+    display: none;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 1rem;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 0.6rem 1rem;
+    flex-wrap: wrap;
+  }
+  .modal-video-controls.visible { display: flex; }
+  .modal-video-controls label {
+    font-size: 0.75rem;
+    color: var(--white-soft);
+    white-space: nowrap;
+    letter-spacing: 0.04em;
+  }
+  .volume-icon { font-size: 1rem; flex-shrink: 0; cursor: pointer; }
+  .volume-slider {
+    flex: 1;
+    -webkit-appearance: none;
+    appearance: none;
+    height: 4px;
+    border-radius: 4px;
+    background: linear-gradient(to right, var(--purple-bright) 70%, rgba(255,255,255,0.15) 70%);
+    outline: none;
+    cursor: pointer;
+    min-width: 60px;
+  }
+  .volume-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 14px; height: 14px;
+    border-radius: 50%;
+    background: var(--purple-glow);
+    box-shadow: 0 0 6px rgba(168,85,247,0.6);
+    cursor: pointer;
+  }
+  .volume-value {
+    font-size: 0.72rem;
+    color: var(--purple-glow);
+    min-width: 28px;
+    text-align: right;
+  }
+
+  /* Play/Stop buttons */
+  .video-playback-controls {
+    display: flex;
+    gap: 0.5rem;
+    width: 100%;
+    margin-top: 0.2rem;
+  }
+  .btn-play-video, .btn-stop-video {
+    flex: 1;
+    padding: 0.4rem 0;
+    border-radius: 8px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 500;
+    cursor: pointer;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    transition: all 0.2s;
+  }
+  .btn-play-video {
+    background: linear-gradient(135deg, var(--purple-accent), var(--purple-bright));
+    color: #fff;
+    box-shadow: 0 3px 10px rgba(124,58,237,0.35);
+  }
+  .btn-play-video:hover { box-shadow: 0 5px 16px rgba(124,58,237,0.6); transform: translateY(-1px); }
+  .btn-stop-video {
+    background: rgba(255,255,255,0.07);
+    color: var(--white-soft);
+    border: 1px solid var(--border);
+  }
+  .btn-stop-video:hover { background: rgba(255,255,255,0.13); color: var(--white); }
+
+  /* Modal preview video */
+  .modal-preview video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+
+  /* No results message */
+  .no-results {
+    display: none;
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 3rem 1rem;
+    color: var(--white-soft);
+    font-size: 0.9rem;
+  }
+  .no-results.show { display: block; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">Fikz<span></span></div>
+  <nav>
+    <a href="#">Explore</a>
+    <a href="#">Collections</a>
+    <a href="#">Trending</a>
+    <a href="#">About</a>
+  </nav>
+  <button class="btn-upload">+ Upload foto/video</button>
+</header>
+
+<div class="hero">
+  <p class="hero-eyebrow">✦ Galeri</p>
+  <h1>ST Fatilah<br><em>Nadia Aris</em></h1>
+</div>
+
+<div class="stats">
+  <div class="stat">
+    <span class="stat-value">29</span>
+    <span class="stat-label">Foto</span>
+  </div>
+  <div class="stat-divider"></div>
+  <div class="stat">
+    <span class="stat-value">11</span>
+    <span class="stat-label">Video</span>
+  </div>
+  <div class="stat-divider"></div>
+  <div class="stat">
+    <span class="stat-value">0</span>
+    <span class="stat-label">Foto live</span>
+  </div>
+</div>
+
+<div class="filter-bar">
+  <span class="filter-label">Filter</span>
+  <button class="chip active" onclick="filterCards('all', this)">All</button>
+  <button class="chip" onclick="filterCards('foto', this)">📷 Foto</button>
+  <button class="chip" onclick="filterCards('fotolive', this)">✨ Foto Live</button>
+  <button class="chip" onclick="filterCards('video', this)">🎬 Video</button>
+</div>
+
+<div class="search-wrap">
+  <input class="search-input" placeholder="Cari ..." oninput="searchCards(this.value)" />
+</div>
+<br>
+
+<!-- SINGLE UNIFIED GRID — all cards here so search stays neat -->
+<div class="grid" id="main-grid">
+
+  <!-- ── FOTO CARDS ── -->
+  <div class="card" data-category="wanita" data-name="Soft Rays" data-type="foto">
+    <div class="card-img-wrap">
+      <div class="thumb-placeholder preset-1">
+        <img src="nadia1.jpeg" alt="Soft Rays">
+      </div>
+      <span class="tag couple"><span class="tag-dot"></span>Foto</span>
+      <span class="like-badge">♥ 50,2K</span>
+    </div>
+    <div class="card-body">
+      <p class="card-title">Soft Rays</p>
+      <div class="card-actions">
+        <button class="btn-view" onclick="openModal('Soft Rays','couple','preset-1','nadia1.jpeg','Cahaya lembut menerpa wajah, menghasilkan aura hangat yang natural dan memukau.','foto')">👁 View</button>
+        <button class="btn-copy" onclick="copyPreset(this,'foto')">⎘ Copy Foto</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" data-category="Beautifull" data-name="Peaceful Soul" data-type="foto">
+    <div class="card-img-wrap">
+      <div class="thumb-placeholder preset-2">
+        <img src="nadia2.jpeg" alt="Peaceful Soul">
+      </div>
+      <span class="tag couple"><span class="tag-dot"></span>Foto</span>
+      <span class="like-badge">♥ 30,2K</span>
+    </div>
+    <div class="card-body">
+      <p class="card-title">Peaceful Soul</p>
+      <div class="card-actions">
+        <button class="btn-view" onclick="openModal('Peaceful Soul','couple','preset-2','nadia2.jpeg','Ekspresi tenang penuh kedalaman. Keindahan yang tak perlu berteriak.','foto')">👁 View</button>
+        <button class="btn-copy" onclick="copyPreset(this,'foto')">⎘ Copy Foto</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" data-category="wanita" data-name="Casual Glow" data-type="foto">
+    <div class="card-img-wrap">
+      <div class="thumb-placeholder preset-3">
+        <img src="nadia3.jpeg" alt="Casual Glow">
+      </div>
+      <span class="tag couple"><span class="tag-dot"></span>Foto</span>
+      <span class="like-badge">♥ 20,2K</span>
+    </div>
+    <div class="card-body">
+      <p class="card-title">Casual Glow</p>
+      <div class="card-actions">
+        <button class="btn-view" onclick="openModal('Casual Glow','pria','preset-3','nadia3.jpeg','Glow alami dengan nuansa kasual yang tetap terlihat stylish dan segar.','foto')">👁 View</button>
+        <button class="btn-copy" onclick="copyPreset(this,'foto')">⎘ Copy Foto</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" data-category="wanita" data-name="Earthy Style" data-type="foto">
+    <div class="card-img-wrap">
+      <div class="thumb-placeholder preset-4">
+        <img src="nadia4.jpeg" alt="Earthy Style">
+      </div>
+      <span class="tag wanita"><span class="tag-dot"></span>Foto</span>
+      <span class="like-badge">♥ 30,9K</span>
+    </div>
+    <div class="card-body">
+      <p class="card-title">Earthy Style</p>
+      <div class="card-actions">
+        <button class="btn-view" onclick="openModal('Earthy Style','wanita','preset-4','nadia4.jpeg','Tone earthy yang elegan, memadukan alam dan fashion dengan sempurna.','foto')">👁 View</button>
+        <button class="btn-copy" onclick="copyPreset(this,'foto')">⎘ Copy Foto</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" data-category="wanita" data-name="Green Vibes" data-type="foto">
+    <div class="card-img-wrap">
+      <div class="thumb-placeholder preset-5">
+        <img src="nadia5.jpeg" alt="Green Vibes">
+      </div>
+      <span class="tag wanita"><span class="tag-dot"></span>Foto</span>
+      <span class="like-badge">♥ 1,1M</span>
+    </div>
+    <div class="card-body">
+      <p class="card-title">Green Vibes</p>
+      <div class="card-actions">
+        <button class="btn-view" onclick="openModal('Green Vibes','wanita','preset-5','nadia5.jpeg','Nuansa hijau segar dengan aura outdoor yang memberi kesan hidup dan cerah.','foto')">👁 View</button>
+        <button class="btn-copy" onclick="copyPreset(this,'foto')">⎘ Copy Foto</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" data-category="wanita" data-name="Monochrome Mood" data-type="foto">
+    <div class="card-img-wrap">
+      <div class="thumb-placeholder preset-1">
+        <img src="nadia6.jpeg" alt="Monochrome Mood">
+      </div>
+      <span class="tag couple"><span class="tag-dot"></span>Foto</span>
+      <span class="like-badge">♥ 312K</span>
+    </div>
+    <div class="card-body">
+      <p class="card-title">Monochrome Mood</p>
+      <div class="card-actions">
+        <button class="btn-view" onclick="openModal('Monochrome Mood','couple','preset-1','nadia6.jpeg','Tone monokrom yang dramatis. Elegan tanpa warna, kuat dalam kontras.','foto')">👁 View</button>
+        <button class="btn-copy" onclick="copyPreset(this,'foto')">⎘ Copy Foto</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" data-category="wanita" data-name="Queit Charm" data-type="foto">
+    <div class="card-img-wrap">
+      <div class="thumb-placeholder preset-2">
+        <img src="nadia7.jpeg" alt="Queit Charm">
+      </div>
+      <span class="tag couple"><span class="tag-dot"></span>Foto</span>
+      <span class="like-badge">♥ 278K</span>
+    </div>
+    <div class="card-body">
+      <p class="card-title">Queit Charm</p>
+      <div class="card-actions">
+        <button class="btn-view" onclick="openModal('Queit Charm','couple','preset-2','nadia7.jpeg','Pesona diam yang memikat. Keindahan yang tersimpan dalam kesederhanaan.','foto')">👁 View</button>
+        <button class="btn-copy" onclick="copyPreset(this,'foto')">⎘ Copy Foto</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" data-category="wanita" data-name="Home Vibes" data-type="foto">
+    <div class="card-img-wrap">
+      <div class="thumb-placeholder preset-3">
+        <img src="nadia8.jpeg" alt="Home Vibes">
+      </div>
+      <span class="tag couple"><span class="tag-dot"></span>Foto</span>
+      <span class="like-badge">♥ 190K</span>
+    </div>
+    <div class="card-body">
+      <p class="card-title">Home Vibes</p>
+      <div class="card-actions">
+        <button class="btn-view" onclick="openModal('Home Vibes','pria','preset-3','nadia8.jpeg','Kehangatan rumah dalam sebuah frame. Santai, nyaman, dan autentik.','foto')">👁 View</button>
+        <button class="btn-copy" onclick="copyPreset(this,'foto')">⎘ Copy Foto</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" data-category="wanita" data-name="Golden Girl" data-type="foto">
+    <div class="card-img-wrap">
+      <div class="thumb-placeholder preset-4">
+        <img src="nadia9.jpeg" alt="Golden Girl">
+      </div>
+      <span class="tag wanita"><span class="tag-dot"></span>Foto</span>
+      <span class="like-badge">♥ 3,9M</span>
+    </div>
+    <div class="card-body">
+      <p class="card-title">Golden Girl</p>
+      <div class="card-actions">
+        <button class="btn-view" onclick="openModal('Golden Girl','wanita','preset-4','nadia9.jpeg','Cahaya keemasan memeluk setiap sudut. Foto dengan aura kemewahan alami.','foto')">👁 View</button>
+        <button class="btn-copy" onclick="copyPreset(this,'foto')">⎘ Copy Foto</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" data-category="wanita" data-name="Dark Elegance" data-type="foto">
+    <div class="card-img-wrap">
+      <div class="thumb-placeholder preset-5">
+        <img src="nadia10.jpeg" alt="Dark Elegance">
+      </div>
+      <span class="tag wanita"><span class="tag-dot"></span>Foto</span>
+      <span class="like-badge">♥ 368K</span>
+    </div>
+    <div class="card-body">
+      <p class="card-title">Dark Elegance</p>
+      <div class="card-actions">
+        <button class="btn-view" onclick="openModal('Dark Elegance','wanita','preset-5','nadia10.jpeg','Keanggunan dalam gelap. Kontras kuat yang menonjolkan karakter kuat.','foto')">👁 View</button>
+        <button class="btn-copy" onclick="copyPreset(this,'foto')">⎘ Copy Foto</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" data-category="wanita" data-name="Campus Life" data-type="foto">
+    <div class="card-img-wrap">
+      <div class="thumb-placeholder preset-1">
+        <img src="nadia11.jpeg" alt="Campus Life">
+      </div>
+      <span class="tag couple"><span class="tag-dot"></span>Foto</span>
+      <span class="like-badge">♥ 312K</span>
+    </div>
+    <div class="card-body">
+      <p class="card-title">Campus Life</p>
+      <div class="card-actions">
+        <button class="btn-view" onclick="openModal('Campus Life','couple','preset-1','nadia11.jpeg','Momen kampus yang energik, muda, dan penuh semangat hari-hari terbaik.','foto')">👁 View</button>
+        <button class="btn-copy" onclick="copyPreset(this,'foto')">⎘ Copy Foto</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" data-category="wanita" data-name="Campus Vibes" data-type="foto">
+    <div class="card-img-wrap">
+      <div class="thumb-placeholder preset-2">
+        <img src="nadia12.jpeg" alt="Campus Vibes">
+      </div>
+      <span class="tag couple"><span class="tag-dot"></span>Foto</span>
+      <span class="like-badge">♥ 20,3K</span>
+    </div>
+    <div class="card-body">
+      <p class="card-title">Campus Vibes</p>
+      <div class="card-actions">
+        <button class="btn-view" onclick="openModal('Campus Vibes','couple','preset-2','nadia12.jpeg','Suasana kampus yang segar dengan look ceria dan percaya diri.','foto')">👁 View</button>
+        <button class="btn-copy" onclick="copyPreset(this,'foto')">⎘ Copy Foto</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" data-category="wanita" data-name="Blue Harmony" data-type="foto">
+    <div class="card-img-wrap">
+      <div class="thumb-placeholder preset-3">
+        <img src="nadia13.jpeg" alt="Blue Harmony">
+      </div>
+      <span class="tag couple"><span class="tag-dot"></span>Foto</span>
+      <span class="like-badge">♥ 190K</span>
+    </div>
+    <div class="card-body">
+      <p class="card-title">Blue Harmony</p>
+      <div class="card-actions">
+        <button class="btn-view" onclick="openModal('Blue Harmony','pria','preset-3','nadia13.jpeg','Harmoni warna biru yang menenangkan, memberi kesan damai dan aesthetic.','foto')">👁 View</button>
+        <button class="btn-copy" onclick="copyPreset(this,'foto')">⎘ Copy Foto</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" data-category="wanita" data-name="Sunny Touch" data-type="foto">
+    <div class="card-img-wrap">
+      <div class="thumb-placeholder preset-4">
+        <img src="nadia14.jpeg" alt="Sunny Touch">
+      </div>
+      <span class="tag wanita"><span class="tag-dot"></span>Foto</span>
+      <span class="like-badge">♥ 441K</span>
+    </div>
+    <div class="card-body">
+      <p class="card-title">Sunny Touch</p>
+      <div class="card-actions">
+        <button class="btn-view" onclick="openModal('Sunny Touch','wanita','preset-4','nadia14.jpeg','Sentuhan matahari yang hangat menghasilkan foto cerah dengan aura positif.','foto')">👁 View</button>
+        <button class="btn-copy" onclick="copyPreset(this,'foto')">⎘ Copy Foto</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" data-category="wanita" data-name="Maroon Bliss" data-type="foto">
+    <div class="card-img-wrap">
+      <div class="thumb-placeholder preset-5">
+        <img src="nadia15.jpeg" alt="Maroon Bliss">
+      </div>
+      <span class="tag wanita"><span class="tag-dot"></span>Foto</span>
+      <span class="like-badge">♥ 368K</span>
+    </div>
+    <div class="card-body">
+      <p class="card-title">Maroon Bliss</p>
+      <div class="card-actions">
+        <button class="btn-view" onclick="openModal('Maroon Bliss','wanita','preset-5','nadia15.jpeg','Warna maroon kaya yang memancarkan keanggunan klasik dan keberanian.','foto')">👁 View</button>
+        <button class="btn-copy" onclick="copyPreset(this,'foto')">⎘ Copy Foto</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" data-category="wanita" data-name="Mocha" data-type="foto">
+    <div class="card-img-wrap">
+      <div class="thumb-placeholder preset-1">
+        <img src="nadia16.jpeg" alt="Mocha">
+      </div>
+      <span class="tag couple"><span class="tag-dot"></span>Foto</span>
+      <span class="like-badge">♥ 31K</span>
+    </div>
+    <div class="card-body">
+      <p class="card-title">Mocha</p>
+      <div class="card-actions">
+        <button class="btn-view" onclick="openModal('Mocha','couple','preset-1','nadia16.jpeg','Tone mocha cokelat lembut yang hangat dan terasa seperti pelukan.','foto')">👁 View</button>
+        <button class="btn-copy" onclick="copyPreset(this,'foto')">⎘ Copy Foto</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" data-category="Beautifull" data-name="At Campus" data-type="foto">
+    <div class="card-img-wrap">
+      <div class="thumb-placeholder preset-2">
+        <img src="nadia17.jpeg" alt="At Campus">
+      </div>
+      <span class="tag couple"><span class="tag-dot"></span>Foto</span>
+      <span class="like-badge">♥ 278K</span>
+    </div>
+    <div class="card-body">
+      <p class="card-title">At Campus</p>
+      <div class="card-actions">
+        <button class="btn-view" onclick="openModal('At Campus','couple','preset-2','nadia17.jpeg','Gaya di lingkungan kampus yang fresh, natural, dan penuh vitalitas.','foto')">👁 View</button>
+        <button class="btn-copy" onclick="copyPreset(this,'foto')">⎘ Copy Foto</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" data-category="wanita" data-name="Café Mood" data-type="foto">
+    <div class="card-img-wrap">
+      <div class="thumb-placeholder preset-3">
+        <img src="nadia18.jpeg" alt="Café Mood">
+      </div>
+      <span class="tag couple"><span class="tag-dot"></span>Foto</span>
+      <span class="like-badge">♥ 190K</span>
+    </div>
+    <div class="card-body">
+      <p class="card-title">Café Mood</p>
+      <div class="card-actions">
+        <button class="btn-view" onclick="openModal('Café Mood','pria','preset-3','nadia18.jpeg','Atmosfer café yang cozy terpancar lewat setiap detail foto yang aesthetic.','foto')">👁 View</button>
+        <button class="btn-copy" onclick="copyPreset(this,'foto')">⎘ Copy Foto</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" data-category="wanita" data-name="Creamy Soft" data-type="foto">
+    <div class="card-img-wrap">
+      <div class="thumb-placeholder preset-4">
+        <img src="nadia19.jpeg" alt="Creamy Soft">
+      </div>
+      <span class="tag wanita"><span class="tag-dot"></span>Foto</span>
+      <span class="like-badge">♥ 441K</span>
+    </div>
+    <div class="card-body">
+      <p class="card-title">Creamy Soft</p>
+      <div class="card-actions">
+        <button class="btn-view" onclick="openModal('Creamy Soft','wanita','preset-4','nadia19.jpeg','Tone creamy lembut yang menonjolkan kelembutan dan keindahan alami.','foto')">👁 View</button>
+        <button class="btn-copy" onclick="copyPreset(this,'foto')">⎘ Copy Foto</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" data-category="wanita" data-name="Floral Ride" data-type="foto">
+    <div class="card-img-wrap">
+      <div class="thumb-placeholder preset-5">
+        <img src="nadia20.jpeg" alt="Floral Ride">
+      </div>
+      <span class="tag wanita"><span class="tag-dot"></span>Foto</span>
+      <span class="like-badge">♥ 368K</span>
+    </div>
+    <div class="card-body">
+      <p class="card-title">Floral Ride</p>
+      <div class="card-actions">
+        <button class="btn-view" onclick="openModal('Floral Ride','wanita','preset-5','nadia20.jpeg','Pesona bunga-bunga yang menemani momen penuh warna dan keceriaan.','foto')">👁 View</button>
+        <button class="btn-copy" onclick="copyPreset(this,'foto')">⎘ Copy Foto</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" data-category="wanita" data-name="Pretty" data-type="foto">
+    <div class="card-img-wrap">
+      <div class="thumb-placeholder preset-1">
+        <img src="nadia21.jpeg" alt="Pretty">
+      </div>
+      <span class="tag couple"><span class="tag-dot"></span>Foto</span>
+      <span class="like-badge">♥ 512K</span>
+    </div>
+    <div class="card-body">
+      <p class="card-title">Pretty</p>
+      <div class="card-actions">
+        <button class="btn-view" onclick="openModal('Pretty','couple','preset-1','nadia21.jpeg','Cantik tanpa usaha berlebihan. Kecantikan sejati yang terpancar alami.','foto')">👁 View</button>
+        <button class="btn-copy" onclick="copyPreset(this,'foto')">⎘ Copy Foto</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" data-category="Beautifull" data-name="Stunning Soul" data-type="foto">
+    <div class="card-img-wrap">
+      <div class="thumb-placeholder preset-2">
+        <img src="nadia22.jpeg" alt="Stunning Soul">
+      </div>
+      <span class="tag couple"><span class="tag-dot"></span>Foto</span>
+      <span class="like-badge">♥ 278K</span>
+    </div>
+    <div class="card-body">
+      <p class="card-title">Stunning Soul</p>
+      <div class="card-actions">
+        <button class="btn-view" onclick="openModal('Stunning Soul','couple','preset-2','nadia22.jpeg','Jiwa yang memukau terpancar kuat dalam setiap sudut foto yang memesona.','foto')">👁 View</button>
+        <button class="btn-copy" onclick="copyPreset(this,'foto')">⎘ Copy Foto</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" data-category="wanita" data-name="Coffee Mood" data-type="foto">
+    <div class="card-img-wrap">
+      <div class="thumb-placeholder preset-3">
+        <img src="nadia23.jpeg" alt="Coffee Mood">
+      </div>
+      <span class="tag couple"><span class="tag-dot"></span>Foto</span>
+      <span class="like-badge">♥ 190K</span>
+    </div>
+    <div class="card-body">
+      <p class="card-title">Coffee Mood</p>
+      <div class="card-actions">
+        <button class="btn-view" onclick="openModal('Coffee Mood','pria','preset-3','nadia23.jpeg','Vibes coffee shop yang hangat dengan aesthetic yang mood-boosting.','foto')">👁 View</button>
+        <button class="btn-copy" onclick="copyPreset(this,'foto')">⎘ Copy Foto</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" data-category="wanita" data-name="Sweet Pink" data-type="foto">
+    <div class="card-img-wrap">
+      <div class="thumb-placeholder preset-4">
+        <img src="nadia24.jpeg" alt="Sweet Pink">
+      </div>
+      <span class="tag wanita"><span class="tag-dot"></span>Foto</span>
+      <span class="like-badge">♥ 44K</span>
+    </div>
+    <div class="card-body">
+      <p class="card-title">Sweet Pink</p>
+      <div class="card-actions">
+        <button class="btn-view" onclick="openModal('Sweet Pink','wanita','preset-4','nadia24.jpeg','Nuansa pink manis yang feminin dan lembut, penuh pesona girly.','foto')">👁 View</button>
+        <button class="btn-copy" onclick="copyPreset(this,'foto')">⎘ Copy Foto</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" data-category="wanita" data-name="Lovely Pink" data-type="foto">
+    <div class="card-img-wrap">
+      <div class="thumb-placeholder preset-5">
+        <img src="nadia25.jpeg" alt="Lovely Pink">
+      </div>
+      <span class="tag wanita"><span class="tag-dot"></span>Foto</span>
+      <span class="like-badge">♥ 368K</span>
+    </div>
+    <div class="card-body">
+      <p class="card-title">Lovely Pink</p>
+      <div class="card-actions">
+        <button class="btn-view" onclick="openModal('Lovely Pink','wanita','preset-5','nadia25.jpeg','Pink yang lovable dan dreamy, menghadirkan rasa manis di setiap pixel.','foto')">👁 View</button>
+        <button class="btn-copy" onclick="copyPreset(this,'foto')">⎘ Copy Foto</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" data-category="wanita" data-name="Pink Aura" data-type="foto">
+    <div class="card-img-wrap">
+      <div class="thumb-placeholder preset-1">
+        <img src="nadia26.jpeg" alt="Pink Aura">
+      </div>
+      <span class="tag couple"><span class="tag-dot"></span>Foto</span>
+      <span class="like-badge">♥ 517K</span>
+    </div>
+    <div class="card-body">
+      <p class="card-title">Pink Aura</p>
+      <div class="card-actions">
+        <button class="btn-view" onclick="openModal('Pink Aura','couple','preset-1','nadia26.jpeg','Aura pink yang kuat dan memesona, penuh energi positif yang menawan.','foto')">👁 View</button>
+        <button class="btn-copy" onclick="copyPreset(this,'foto')">⎘ Copy Foto</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" data-category="Beautifull" data-name="Rosy Touch" data-type="foto">
+    <div class="card-img-wrap">
+      <div class="thumb-placeholder preset-2">
+        <img src="nadia27.jpeg" alt="Rosy Touch">
+      </div>
+      <span class="tag couple"><span class="tag-dot"></span>Foto</span>
+      <span class="like-badge">♥ 51K</span>
+    </div>
+    <div class="card-body">
+      <p class="card-title">Rosy Touch</p>
+      <div class="card-actions">
+        <button class="btn-view" onclick="openModal('Rosy Touch','couple','preset-2','nadia27.jpeg','Sentuhan rosy yang elegan, memadu manis antara kesegaran dan keanggunan.','foto')">👁 View</button>
+        <button class="btn-copy" onclick="copyPreset(this,'foto')">⎘ Copy Foto</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" data-category="wanita" data-name="Pink Dream" data-type="foto">
+    <div class="card-img-wrap">
+      <div class="thumb-placeholder preset-3">
+        <img src="nadia28.jpeg" alt="Pink Dream">
+      </div>
+      <span class="tag couple"><span class="tag-dot"></span>Foto</span>
+      <span class="like-badge">♥ 81K</span>
+    </div>
+    <div class="card-body">
+      <p class="card-title">Pink Dream</p>
+      <div class="card-actions">
+        <button class="btn-view" onclick="openModal('Pink Dream','pria','preset-3','nadia28.jpeg','Impian dalam nuansa pink. Lembut, indah, dan penuh daya tarik.','foto')">👁 View</button>
+        <button class="btn-copy" onclick="copyPreset(this,'foto')">⎘ Copy Foto</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" data-category="wanita" data-name="Drive Time" data-type="foto">
+    <div class="card-img-wrap">
+      <div class="thumb-placeholder preset-4">
+        <img src="nadia29.jpeg" alt="Drive Time">
+      </div>
+      <span class="tag wanita"><span class="tag-dot"></span>Foto</span>
+      <span class="like-badge">♥ 170K</span>
+    </div>
+    <div class="card-body">
+      <p class="card-title">Drive Time</p>
+      <div class="card-actions">
+        <button class="btn-view" onclick="openModal('Drive Time','wanita','preset-4','nadia29.jpeg','Momen di balik kemudi yang santai dengan vibes road trip yang stylish.','foto')">👁 View</button>
+        <button class="btn-copy" onclick="copyPreset(this,'foto')">⎘ Copy Foto</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── VIDEO CARDS (no autoplay, static thumbnail with play overlay) ── -->
+  <div class="card" data-category="wanita" data-name="That's you be me - Justin Bieber" data-type="video">
+    <div class="card-img-wrap">
+      <div class="thumb-placeholder preset-1">
+        <div class="video-thumb-wrap">
+          <div class="video-play-overlay"><div class="play-icon">▶</div></div>
+        </div>
+      </div>
+      <span class="tag couple"><span class="tag-dot"></span>Video</span>
+      <span class="like-badge">♥ 30,9M</span>
+    </div>
+    <div class="card-body">
+      <p class="card-title">That's you be me<br>Justin Bieber</p>
+      <div class="card-actions">
+        <button class="btn-view" onclick="openModal('That\'s you be me - Justin Bieber','couple','preset-1','videonadia1.mp4','Vibes hangat Justin Bieber yang romantis — cocok untuk momen selfie berdua yang penuh chemistry.','video')">👁 View</button>
+        <button class="btn-copy" onclick="copyPreset(this,'video')">⎘ Copy Video</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" data-category="wanita" data-name="Sama sama suka - Sency" data-type="video">
+    <div class="card-img-wrap">
+      <div class="thumb-placeholder preset-2">
+        <div class="video-thumb-wrap">
+          <div class="video-play-overlay"><div class="play-icon">▶</div></div>
+        </div>
+      </div>
+      <span class="tag couple"><span class="tag-dot"></span>Video</span>
+      <span class="like-badge">♥ 20M</span>
+    </div>
+    <div class="card-body">
+      <p class="card-title">Sama sama suka<br>Sency</p>
+      <div class="card-actions">
+        <button class="btn-view" onclick="openModal('Sama sama suka - Sency','couple','preset-2','videonadia2.mp4','Nuansa lembut kemerahan penuh perasaan. Warna bunga terlihat vibrant dan hidup.','video')">👁 View</button>
+        <button class="btn-copy" onclick="copyPreset(this,'video')">⎘ Copy Video</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" data-category="wanita" data-name="You Da One - Rihanna" data-type="video">
+    <div class="card-img-wrap">
+      <div class="thumb-placeholder preset-3">
+        <div class="video-thumb-wrap">
+          <div class="video-play-overlay"><div class="play-icon">▶</div></div>
+        </div>
+      </div>
+      <span class="tag couple"><span class="tag-dot"></span>Video</span>
+      <span class="like-badge">♥ 20,2K</span>
+    </div>
+    <div class="card-body">
+      <p class="card-title">You Da One<br>Rihanna</p>
+      <div class="card-actions">
+        <button class="btn-view" onclick="openModal('You Da One - Rihanna','pria','preset-3','videonadia3.mp4','Tone gelap moody dengan highlight biru. Sempurna untuk selfi cermin aesthetic.','video')">👁 View</button>
+        <button class="btn-copy" onclick="copyPreset(this,'video')">⎘ Copy Video</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" data-category="wanita" data-name="It's You - Ali Gatie" data-type="video">
+    <div class="card-img-wrap">
+      <div class="thumb-placeholder preset-4">
+        <div class="video-thumb-wrap">
+          <div class="video-play-overlay"><div class="play-icon">▶</div></div>
+        </div>
+      </div>
+      <span class="tag wanita"><span class="tag-dot"></span>Video</span>
+      <span class="like-badge">♥ 20,3K</span>
+    </div>
+    <div class="card-body">
+      <p class="card-title">It's You<br>Ali Gatie</p>
+      <div class="card-actions">
+        <button class="btn-view" onclick="openModal('It\'s You - Ali Gatie','wanita','preset-4','videonadia4.mp4','Kontras tinggi dengan shadow dalam. Untuk tampilan gothic dan dramatic yang kuat.','video')">👁 View</button>
+        <button class="btn-copy" onclick="copyPreset(this,'video')">⎘ Copy Video</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" data-category="wanita" data-name="Love Me Not - Ravyn Lenae" data-type="video">
+    <div class="card-img-wrap">
+      <div class="thumb-placeholder preset-5">
+        <div class="video-thumb-wrap">
+          <div class="video-play-overlay"><div class="play-icon">▶</div></div>
+        </div>
+      </div>
+      <span class="tag wanita"><span class="tag-dot"></span>Video</span>
+      <span class="like-badge">♥ 30,2K</span>
+    </div>
+    <div class="card-body">
+      <p class="card-title">Love Me Not<br>Ravyn Lenae</p>
+      <div class="card-actions">
+        <button class="btn-view" onclick="openModal('Love Me Not - Ravyn Lenae','wanita','preset-5','videonadia5.mp4','Hitam-putih berkelas dengan tone abu elegant. Menangkap emosi tanpa butuh warna.','video')">👁 View</button>
+        <button class="btn-copy" onclick="copyPreset(this,'video')">⎘ Copy Video</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" data-category="wanita" data-name="Shape Of My Heart - Backstreet Boys" data-type="video">
+    <div class="card-img-wrap">
+      <div class="thumb-placeholder preset-1">
+        <div class="video-thumb-wrap">
+          <div class="video-play-overlay"><div class="play-icon">▶</div></div>
+        </div>
+      </div>
+      <span class="tag couple"><span class="tag-dot"></span>Video</span>
+      <span class="like-badge">♥ 30,9M</span>
+    </div>
+    <div class="card-body">
+      <p class="card-title">Shape Of My Heart <br> Backstreet Boys</p>
+      <div class="card-actions">
+        <button class="btn-view" onclick="openModal('Shape Of My Heart - Backstreet Boys','couple','preset-1','videonadia6.mp4','Melankolis dan nostalgic — preset mirror hangat yang cocok untuk momen sentimental.','video')">👁 View</button>
+        <button class="btn-copy" onclick="copyPreset(this,'video')">⎘ Copy Video</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" data-category="wanita" data-name="you ! - LANY" data-type="video">
+    <div class="card-img-wrap">
+      <div class="thumb-placeholder preset-2">
+        <div class="video-thumb-wrap">
+          <div class="video-play-overlay"><div class="play-icon">▶</div></div>
+        </div>
+      </div>
+      <span class="tag couple"><span class="tag-dot"></span>Video</span>
+      <span class="like-badge">♥ 20M</span>
+    </div>
+    <div class="card-body">
+      <p class="card-title">you ! <br> LANY</p>
+      <div class="card-actions">
+        <button class="btn-view" onclick="openModal('you ! - LANY','couple','preset-2','videonadia7.mp4','Energi LANY yang dreamy dan indie — nuansa sore romantis dalam setiap frame.','video')">👁 View</button>
+        <button class="btn-copy" onclick="copyPreset(this,'video')">⎘ Copy Video</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" data-category="wanita" data-name="A Little More Honest - Joon, The 1975" data-type="video">
+    <div class="card-img-wrap">
+      <div class="thumb-placeholder preset-3">
+        <div class="video-thumb-wrap">
+          <div class="video-play-overlay"><div class="play-icon">▶</div></div>
+        </div>
+      </div>
+      <span class="tag couple"><span class="tag-dot"></span>Video</span>
+      <span class="like-badge">♥ 20,2K</span>
+    </div>
+    <div class="card-body">
+      <p class="card-title">A Little More Honest <br> Joon, The 1975</p>
+      <div class="card-actions">
+        <button class="btn-view" onclick="openModal('A Little More Honest - Joon, The 1975','pria','preset-3','videonadia8.mp4','Kejujuran dalam setiap frame. Preset clean aesthetic dengan feel The 1975 yang khas.','video')">👁 View</button>
+        <button class="btn-copy" onclick="copyPreset(this,'video')">⎘ Copy Video</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" data-category="wanita" data-name="Sugar - Flo Rida" data-type="video">
+    <div class="card-img-wrap">
+      <div class="thumb-placeholder preset-4">
+        <div class="video-thumb-wrap">
+          <div class="video-play-overlay"><div class="play-icon">▶</div></div>
+        </div>
+      </div>
+      <span class="tag wanita"><span class="tag-dot"></span>Video</span>
+      <span class="like-badge">♥ 20,3K</span>
+    </div>
+    <div class="card-body">
+      <p class="card-title">Sugar <br> Flo Rida</p>
+      <div class="card-actions">
+        <button class="btn-view" onclick="openModal('Sugar - Flo Rida','wanita','preset-4','videonadia9.mp4','Manis dan energik seperti lagunya — tone cerah yang cocok untuk momen fun.','video')">👁 View</button>
+        <button class="btn-copy" onclick="copyPreset(this,'video')">⎘ Copy Video</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" data-category="wanita" data-name="Yours - Chanyeol & Raiden" data-type="video">
+    <div class="card-img-wrap">
+      <div class="thumb-placeholder preset-5">
+        <div class="video-thumb-wrap">
+          <div class="video-play-overlay"><div class="play-icon">▶</div></div>
+        </div>
+      </div>
+      <span class="tag wanita"><span class="tag-dot"></span>Video</span>
+      <span class="like-badge">♥ 30,2K</span>
+    </div>
+    <div class="card-body">
+      <p class="card-title">Yours <br> Chanyeol & Raiden</p>
+      <div class="card-actions">
+        <button class="btn-view" onclick="openModal('Yours - Chanyeol & Raiden','wanita','preset-5','videonadia10.mp4','Sentuhan K-pop elegan dengan tone abu gelap yang karismatik dan memikat.','video')">👁 View</button>
+        <button class="btn-copy" onclick="copyPreset(this,'video')">⎘ Copy Video</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" data-category="couple" data-name="Breathe - Olly Alexander" data-type="video">
+    <div class="card-img-wrap">
+      <div class="thumb-placeholder preset-1">
+        <div class="video-thumb-wrap">
+          <div class="video-play-overlay"><div class="play-icon">▶</div></div>
+        </div>
+      </div>
+      <span class="tag couple"><span class="tag-dot"></span>Video</span>
+      <span class="like-badge">♥ 517K</span>
+    </div>
+    <div class="card-body">
+      <p class="card-title">Breathe <br> Olly Alexander</p>
+      <div class="card-actions">
+        <button class="btn-view" onclick="openModal('Breathe - Olly Alexander','couple','preset-1','videonadia11.mp4','Preset mirror penuh napas — lembut, intim, dan terasa hidup di setiap momen.','video')">👁 View</button>
+        <button class="btn-copy" onclick="copyPreset(this,'video')">⎘ Copy Video</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Coming Soon cards -->
+  <div class="card" data-category="fotolive" data-name="Coming Soon" data-type="fotolive">
+    <div class="card-img-wrap">
+      <div class="thumb-placeholder preset-2">
+        <img src="coming soon.jpg" alt="Coming Soon">
+      </div>
+      <span class="tag" style="position:absolute;top:12px;left:12px;z-index:3;background:rgba(34,197,94,0.25);border:1px solid rgba(34,197,94,0.5);color:#86efac;"><span class="tag-dot" style="background:#22c55e"></span>Foto Live</span>
+      <span class="like-badge">♥ 0</span>
+    </div>
+    <div class="card-body">
+      <p class="card-title">Coming Soon</p>
+      <div class="card-actions">
+        <button class="btn-view" onclick="openModal('Coming Soon','fotolive','preset-2','coming soon.jpg','Foto Live akan segera hadir. Nantikan konten eksklusif terbaru.','fotolive')">👁 View</button>
+        <button class="btn-copy" onclick="copyPreset(this,'fotolive')">⎘ Copy Foto Live</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- No results message (shown when search finds nothing) -->
+  <div class="no-results" id="no-results">Tidak ada hasil ditemukan untuk pencarian ini.</div>
+
+</div>
+
+<footer>
+  <span>© FatilahNadia — All rights reserved</span>
+  <span>Made with <a href="#">♥ love</a></span>
+</footer>
+
+<!-- ── MODAL ── -->
+<div class="modal-overlay" id="modal" onclick="closeModalOutside(event)">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <h2 id="modal-title"></h2>
+    <div class="modal-tag" id="modal-tag"></div>
+    <div class="modal-preview" id="modal-preview"></div>
+
+    <!-- Video controls: play/stop + volume -->
+    <div class="modal-video-controls" id="modal-video-controls">
+      <div class="video-playback-controls">
+        <button class="btn-play-video" onclick="playModalVideo()">▶ Play</button>
+        <button class="btn-stop-video" onclick="stopModalVideo()">■ Stop</button>
+      </div>
+      <span class="volume-icon" id="volume-icon" onclick="toggleMute()">🔊</span>
+      <label>Volume</label>
+      <input type="range" class="volume-slider" id="volume-slider" min="0" max="100" value="70" oninput="setVolume(this.value)">
+      <span class="volume-value" id="volume-value">70%</span>
+    </div>
+
+    <p class="modal-desc" id="modal-desc"></p>
+    <div class="modal-actions">
+      <button class="btn-view" style="flex:1" id="modal-preview-btn">👁 Preview</button>
+      <button class="btn-copy" style="flex:1" id="modal-copy-btn" onclick="copyModalPreset(this)">⎘ Copy Foto</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  // ── FILTER ──
+  function filterCards(cat, btn) {
+    document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.card').forEach(card => {
+      const match = cat === 'all' || card.dataset.type === cat;
+      card.style.display = match ? '' : 'none';
+    });
+    checkNoResults();
+  }
+
+  // ── SEARCH — operates on the single grid, keeps layout intact ──
+  function searchCards(val) {
+    const q = val.toLowerCase().trim();
+    let visible = 0;
+    document.querySelectorAll('.card').forEach(card => {
+      const nameMatch = card.dataset.name.toLowerCase().includes(q);
+      card.style.display = (q === '' || nameMatch) ? '' : 'none';
+      if (card.style.display !== 'none') visible++;
+    });
+    checkNoResults(visible, q);
+  }
+
+  function checkNoResults(count, q) {
+    const noRes = document.getElementById('no-results');
+    if (count === undefined) {
+      count = [...document.querySelectorAll('.card')].filter(c => c.style.display !== 'none').length;
+    }
+    noRes.classList.toggle('show', count === 0 && q && q.length > 0);
+  }
+
+  // ── COPY ──
+  async function copyPreset(btn, type) {
+    const label = type === 'video' ? 'Copy Video' : type === 'fotolive' ? 'Copy Foto Live' : 'Copy Foto';
+    // Try to copy the media URL to clipboard
+    const card = btn.closest('.card');
+    // Get the src from the onclick of the view button
+    const viewBtn = card.querySelector('.btn-view');
+    const onclickStr = viewBtn ? viewBtn.getAttribute('onclick') : '';
+    const srcMatch = onclickStr.match(/'([^']+\.(jpeg|jpg|png|MP4|mp4|gif))'/i);
+    if (srcMatch) {
+      try {
+        await navigator.clipboard.writeText(srcMatch[1]);
+      } catch(e) {}
+    }
+    btn.textContent = '✓ Disalin!';
+    btn.classList.add('copied');
+    setTimeout(() => {
+      btn.textContent = '⎘ ' + label;
+      btn.classList.remove('copied');
+    }, 1800);
+  }
+
+  async function copyModalPreset(btn) {
+    const src = window._modalMediaSrc || '';
+    const type = window._modalMediaType || 'foto';
+    const label = type === 'video' ? 'Copy Video' : type === 'fotolive' ? 'Copy Foto Live' : 'Copy Foto';
+    // Try to copy file name/URL to clipboard
+    if (src) {
+      try {
+        // Attempt to fetch and copy as blob (works for same-origin files)
+        const response = await fetch(src);
+        const blob = await response.blob();
+        await navigator.clipboard.write([new ClipboardItem({ [blob.type]: blob })]);
+      } catch(e) {
+        // Fallback: copy the file name
+        try { await navigator.clipboard.writeText(src); } catch(e2) {}
+      }
+    }
+    btn.textContent = '✓ Disalin!';
+    btn.classList.add('copied');
+    setTimeout(() => {
+      btn.textContent = '⎘ ' + label;
+      btn.classList.remove('copied');
+    }, 1800);
+  }
+
+  // ── MODAL ──
+  function openModal(title, cat, presetClass, mediaSrc, desc, mediaType) {
+    document.getElementById('modal-title').textContent = title;
+    document.getElementById('modal-desc').textContent = desc;
+
+    // Tag label matches media type only
+    const tagEl = document.getElementById('modal-tag');
+    const mediaLabel = mediaType === 'video' ? '🎬 Video' : mediaType === 'fotolive' ? '✨ Foto Live' : '📷 Foto';
+    const tagColor = mediaType === 'video' ? 'rgba(124,58,237,0.25)' : mediaType === 'fotolive' ? 'rgba(34,197,94,0.25)' : 'rgba(59,130,246,0.25)';
+    const tagBorder = mediaType === 'video' ? 'rgba(124,58,237,0.5)' : mediaType === 'fotolive' ? 'rgba(34,197,94,0.5)' : 'rgba(59,130,246,0.5)';
+    const tagText = mediaType === 'video' ? '#d8b4fe' : mediaType === 'fotolive' ? '#86efac' : '#93c5fd';
+    const dotColor = mediaType === 'video' ? '#7c3aed' : mediaType === 'fotolive' ? '#22c55e' : '#3b82f6';
+    tagEl.innerHTML = `
+      <span class="tag" style="position:static;display:inline-flex;background:${tagColor};border:1px solid ${tagBorder};color:${tagText}"><span class="tag-dot" style="background:${dotColor}"></span>${mediaLabel}</span>`;
+
+    const preview = document.getElementById('modal-preview');
+    const videoControls = document.getElementById('modal-video-controls');
+    const copyBtn = document.getElementById('modal-copy-btn');
+    // Store current media info for copy
+    window._modalMediaSrc = mediaSrc;
+    window._modalMediaType = mediaType;
+
+    if (mediaType === 'video') {
+      // Video: preload="metadata" agar browser hanya ambil info dasar (durasi/dimensi),
+      // tidak buffer seluruh file → tidak lag, tapi tetap bisa diplay saat tombol Play ditekan.
+      // Sediakan dua source (lowercase .mp4 dan uppercase .MP4) sebagai fallback
+      const mediaSrcUpper = mediaSrc.replace(/\.mp4$/i, '.MP4');
+      const mediaSrcLower = mediaSrc.replace(/\.MP4$/, '.mp4');
+      preview.innerHTML = `<div class="thumb-placeholder ${presetClass}" style="height:100%;aspect-ratio:unset">
+        <video id="modal-video" width="100%" height="100%" loop playsinline preload="metadata" style="object-fit:cover;border-radius:10px;background:#000;">
+          <source src="${mediaSrcLower}" type="video/mp4">
+          <source src="${mediaSrcUpper}" type="video/mp4">
+        </video>
+        <div id="video-error-msg" style="display:none;position:absolute;inset:0;align-items:center;justify-content:center;flex-direction:column;gap:8px;background:rgba(0,0,0,0.6);border-radius:10px;color:#fff;font-size:0.82rem;text-align:center;padding:1rem;">
+          <span style="font-size:2rem;">⚠️</span>
+          <span>Video tidak dapat dimuat.<br>Pastikan file video sudah di-upload ke repo GitHub.</span>
+        </div>
+      </div>`;
+      // Set initial volume setelah elemen ada di DOM
+      setTimeout(() => {
+        const vid = document.getElementById('modal-video');
+        if (vid) {
+          vid.volume = parseInt(document.getElementById('volume-slider').value) / 100;
+          // Tampilkan pesan error jika video gagal load
+          vid.addEventListener('error', () => {
+            const errMsg = document.getElementById('video-error-msg');
+            if (errMsg) errMsg.style.display = 'flex';
+          });
+        }
+      }, 50);
+      videoControls.classList.add('visible');
+      updateVolumeUI(parseInt(document.getElementById('volume-slider').value));
+      copyBtn.textContent = '⎘ Copy Video';
+    } else {
+      preview.innerHTML = `<div class="thumb-placeholder ${presetClass}" style="height:100%;aspect-ratio:unset"><img src="${mediaSrc}" alt="${title}" loading="lazy"></div>`;
+      videoControls.classList.remove('visible');
+      copyBtn.textContent = mediaType === 'fotolive' ? '⎘ Copy Foto Live' : '⎘ Copy Foto';
+    }
+
+    document.getElementById('modal').classList.add('open');
+    // Activate Preview button
+    const previewBtn = document.getElementById('modal-preview-btn');
+    previewBtn.onclick = () => { if (window._modalMediaSrc) window.open(window._modalMediaSrc, '_blank'); };
+  }
+
+  // ── VIDEO PLAYBACK ──
+  function playModalVideo() {
+    const vid = document.getElementById('modal-video');
+    if (!vid) return;
+    // Pastikan volume sudah di-set sebelum play
+    vid.volume = parseInt(document.getElementById('volume-slider').value) / 100;
+    const playPromise = vid.play();
+    if (playPromise !== undefined) {
+      playPromise.catch(err => {
+        // Autoplay diblokir browser — coba muted dulu lalu unmute
+        vid.muted = true;
+        vid.play().then(() => {
+          vid.muted = false;
+        }).catch(() => {});
+      });
+    }
+  }
+
+  function stopModalVideo() {
+    const vid = document.getElementById('modal-video');
+    if (vid) { vid.pause(); vid.currentTime = 0; }
+  }
+
+  function setVolume(val) {
+    const vid = document.getElementById('modal-video');
+    if (vid) vid.volume = val / 100;
+    updateVolumeUI(val);
+  }
+
+  function updateVolumeUI(val) {
+    const slider = document.getElementById('volume-slider');
+    const valueLabel = document.getElementById('volume-value');
+    const icon = document.getElementById('volume-icon');
+    slider.style.background = `linear-gradient(to right, var(--purple-bright) ${val}%, rgba(255,255,255,0.15) ${val}%)`;
+    valueLabel.textContent = val + '%';
+    if (val == 0) icon.textContent = '🔇';
+    else if (val < 40) icon.textContent = '🔉';
+    else icon.textContent = '🔊';
+  }
+
+  function toggleMute() {
+    const slider = document.getElementById('volume-slider');
+    const currentVal = parseInt(slider.value);
+    if (currentVal > 0) {
+      slider._prevVol = currentVal;
+      slider.value = 0;
+    } else {
+      slider.value = slider._prevVol || 70;
+    }
+    setVolume(slider.value);
+  }
+
+  function closeModal() {
+    document.getElementById('modal').classList.remove('open');
+    const vid = document.getElementById('modal-video');
+    if (vid) {
+      vid.pause();
+      vid.removeAttribute('src');
+      // Hapus semua source dan reset agar browser berhenti buffer
+      while (vid.firstChild) vid.removeChild(vid.firstChild);
+      vid.load();
+    }
+    // Reset preview agar tidak ada elemen tersisa
+    document.getElementById('modal-preview').innerHTML = '';
+    document.getElementById('modal-video-controls').classList.remove('visible');
+  }
+
+  function closeModalOutside(e) {
+    if (e.target === document.getElementById('modal')) closeModal();
+  }
+
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+</script>
+</body>
+</html>
